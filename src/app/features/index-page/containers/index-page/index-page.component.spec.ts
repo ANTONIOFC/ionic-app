@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IndexPageComponent } from './index-page.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('IndexPageComponent', () => {
   let component: IndexPageComponent;
@@ -8,7 +9,8 @@ describe('IndexPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IndexPageComponent ]
+      declarations: [ IndexPageComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
