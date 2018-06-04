@@ -1,5 +1,7 @@
 {
   "name": "myApp",
   "type": "angular",
-  "integrations": {}
+  "integrations": {},
+  "app_id": "",
+  "hooks": {}
 }

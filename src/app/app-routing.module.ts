@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
+  { path: 'index', loadChildren: './features/index-page/index-page.module#IndexPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
