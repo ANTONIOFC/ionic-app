@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { TabOneRoutingModule } from './tab-one.routing';
 import { TabOneComponent } from './containers/tab-one/tab-one.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    TabOneRoutingModule
+    TabOneRoutingModule,
+    SharedModule
   ],
   declarations: [TabOneComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

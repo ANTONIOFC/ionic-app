@@ -2,10 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from './components/map/map.component';
 
+const COMPONENTS: any[] = [
+  MapComponent
+];
+
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [MapComponent]
+  declarations: [COMPONENTS],
+  exports: [...COMPONENTS]
 })
 export class SharedModule { }
