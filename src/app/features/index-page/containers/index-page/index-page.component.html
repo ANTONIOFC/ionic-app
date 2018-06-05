@@ -1,12 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-  Daniel App.
-  <p>If you get lost, the <a target="_blank" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
-</ion-content>
+<ion-tabs>
+  <ion-tab label="One" icon="navigate" href="/tabs/(one:one)">
+    <ion-router-outlet name="one"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Two" icon="person" href="/tabs/(two:two)">
+    <ion-router-outlet name="two"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Three" icon="bookmarks" href="/tabs/(three:three)">
+    <ion-router-outlet name="three"></ion-router-outlet>
+  </ion-tab>
+</ion-tabs>

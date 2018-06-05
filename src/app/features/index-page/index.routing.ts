@@ -4,8 +4,29 @@ import { IndexPageComponent } from './containers/index-page/index-page.component
 
 const routes: Routes = [
   {
+    path: 'tabs',
+    component: IndexPageComponent,
+    children: [
+      {
+        path: 'one',
+        outlet: 'one',
+        loadChildren: '../tab-one/tab-one.module#TabOneModule'
+      },
+      {
+        path: 'two',
+        outlet: 'two',
+        loadChildren: '../tab-two/tab-two.module#TabTwoModule'
+      },
+      {
+        path: 'three',
+        outlet: 'three',
+        loadChildren: '../tab-three/tab-three.module#TabThreeModule'
+      }
+    ]
+  },
+  {
     path: '',
-    component: IndexPageComponent
+    redirectTo: '/tabs/(one:one)',
   }
 ];
 
