@@ -29,7 +29,7 @@
         </ion-item-options>
       </ion-item-sliding>
 
-      <ion-item-sliding *ngFor="let post of posts$" (click)="goPost(post)">
+      <ion-item-sliding *ngFor="let post of posts$" (click)="goPost(posts)">
         <ion-item text-wrap button detail>
           <ion-label>
             <ion-text color="primary" >
@@ -37,6 +37,7 @@
             </ion-text>
             <ion-text >
               <p>{{post.body}}</p>
+              <router-outlet name="post-detail"></router-outlet>
             </ion-text>
             
           </ion-label>

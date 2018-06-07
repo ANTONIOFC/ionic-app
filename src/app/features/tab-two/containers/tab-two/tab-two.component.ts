@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GenericHttpService } from "../../../../shared/generic-http/generic-http.service";
+import { GenericHttpService } from '../../../../shared/services/generic-http/generic-http.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,18 +10,17 @@ import { Observable } from 'rxjs';
 export class TabTwoComponent implements OnInit {
 
   posts$: Object;
-  photos$: Object;
 
   constructor(private data: GenericHttpService) { }
 
-  ngOnInit():void {
-    this.data.getUsers().subscribe(
+  ngOnInit(): void {
+    this.data.getPosts().subscribe(
       data => this.posts$ = data
-    )
+    );
   }
 
-  goPost(posts):void{
-    console.log('Go post......', posts)
+  goPost(posts) {
+    console.log('go Post....', posts);
   }
 
 }

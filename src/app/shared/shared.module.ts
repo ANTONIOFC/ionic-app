@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from './components/map/map.component';
-import { GenericHttpService } from './generic-http/generic-http.service';
+import { GenericHttpService } from './services/generic-http/generic-http.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
