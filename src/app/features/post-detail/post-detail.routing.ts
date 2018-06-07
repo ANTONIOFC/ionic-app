@@ -4,9 +4,12 @@ import { PostDetailComponent } from './containers/post-detail/post-detail.compon
 
 const routes: Routes = [
   {
-    path: 'detail',
-    component: PostDetailComponent,
-    outlet: 'post-detail'
+    path: ':id',
+    component: PostDetailComponent
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/(two:two)'
   }
 ];
 

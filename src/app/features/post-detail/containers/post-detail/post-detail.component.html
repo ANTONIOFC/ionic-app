@@ -1,3 +1,24 @@
-<p>
-  post-detail works!
-</p>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-button (click)="back()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>Ionic Blank</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding-top>
+ 
+  <ion-item text-wrap *ngIf="(post$|async) as post;else noPost">
+    <ion-label>
+      <ion-text color="primary">
+        <h2>{{post?.title}}</h2>
+      </ion-text>
+      <p margin-top>{{post?.body}}</p>
+      <ion-button (click)="goUserProfil(post?.userId)">view user profil</ion-button>
+    </ion-label>
+  </ion-item>
+  <ng-template #noPost>...loading </ng-template>
+</ion-content>

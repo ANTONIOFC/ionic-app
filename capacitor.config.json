@@ -1,0 +1,6 @@
+{
+  "appId": "ch.nomades.app",
+  "appName": "Geoloc",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

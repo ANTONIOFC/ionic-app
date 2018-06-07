@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GenericHttpService } from '../../../../shared/services/generic-http/generic-http.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab-two',
@@ -9,18 +10,23 @@ import { Observable } from 'rxjs';
 })
 export class TabTwoComponent implements OnInit {
 
-  posts$: Object;
+  public posts$: Observable<any[]>;
 
-  constructor(private data: GenericHttpService) { }
+  constructor(
+    private _http: GenericHttpService,
+    private _router: Router,
+  ) { }
 
-  ngOnInit(): void {
-    this.data.getPosts().subscribe(
-      data => this.posts$ = data
-    );
+  ngOnInit() {
+    this.loadPosts();
   }
 
-  goPost(posts) {
-    console.log('go Post....', posts);
+  loadPosts(): void {
+    this.posts$ = this._http.get('fakeApi', '/posts');
   }
 
+  goPost(post): void {
+    console.log('::: Go to post detail', post);
+    this._router.navigate(['posts', post.id]);
+  }
 }
