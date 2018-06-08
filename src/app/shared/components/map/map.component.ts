@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -7,22 +7,22 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class MapComponent implements AfterViewInit {
 
-  constructor() { }
+  @Input() coords: {latitude: number, longitude: number};
 
-  
+  constructor() { }
 
   ngAfterViewInit() {
     this.initMap();
   }
 
   initMap(): void {
-    const uluru = {lat: 46.2, lng: 6.16};
+    const POSITION = {lat: this.coords.latitude, lng: this.coords.longitude}
     const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
-      center: uluru
+      center: POSITION || {lat: 22, lng: 22}
     });
     const marker = new google.maps.Marker({
-      position: uluru,
+      position: POSITION,
       map: map
     });
   }

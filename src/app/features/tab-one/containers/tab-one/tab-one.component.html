@@ -8,10 +8,16 @@
       </ion-menu-toggle>
     </ion-buttons>
     <ion-title>Ionic Blank</ion-title>
+    <!-- <ion-buttons slot="end" (click)="show()">
+          <ion-button>
+            <ion-icon slot="icon-only" name="menu"></ion-icon>
+          </ion-button>
+      </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <app-map></app-map>
-</ion-content>
+  <!-- {{(coordinates$|async)|json}} -->
   
+  <app-map *ngIf="(coordinates$|async) as coords" [coords]="coords"></app-map>
+</ion-content>
