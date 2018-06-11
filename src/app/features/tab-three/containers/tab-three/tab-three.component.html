@@ -1,34 +1,26 @@
 <ion-header>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-toggle>
-          <ion-button>
-            <ion-icon slot="icon-only" name="menu"></ion-icon>
-          </ion-button>
-        </ion-menu-toggle>
-      </ion-buttons>
-      <ion-title>Ionic Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    <ion-title>Ionic Blank</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content padding>
-    <p>Tab Three work!</p>
-    <div *ngIf="(motionDatas | async) as datas">
-        <pre>
-          {{ datas?.alpha}}
-          {{ datas?.beta}}
-          {{ datas?.gamma}}
-        </pre>
-    </div>
-  </ion-content>
-
-  <img id="imgSnap" width="150" height="150" src="" alt="">
-
-<video>
-  
-</video>
-
-<ion-button (click)="takeSnapshot()">Take Photo</ion-button>
-
+<ion-content padding>
+  <p>Tab Three work!</p>
+  <div *ngIf="(motionDatas | async) as datas">
+      <pre>
+        {{ datas?.alpha}}
+        {{ datas?.beta}}
+        {{ datas?.gamma}}
+      </pre>
+  </div>
+  <ion-button (click)="startCamera()">TAKE PICTURE</ion-button>
+</ion-content>
 
 

@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Capacitor, Plugins, GeolocationPosition } from '@capacitor/core';
 import { of, Observable } from 'rxjs';
-
+// import custom plugin
 import { MotionPWA, IMotionPWADatasOptions } from '../../../../../plugins/motion/pwa/motion-pwa.plugin';
 import { CameraPWA } from '../../../../../plugins/camera/pwa/camera-pwa.plugin';
 
 // Instantiate custom plugin
 const motionPWA = new MotionPWA();
-const cameraPWA = new CameraPWA();
+const cameraPWA = new CameraPWA('app-tab-three');
 
-const { Toast, Motion } = Plugins;
+const { Motion, Toast } = Capacitor.Plugins;
 
 @Component({
   selector: 'app-tab-three',
@@ -19,48 +18,17 @@ const { Toast, Motion } = Plugins;
 })
 export class TabThreeComponent implements OnInit {
 
-  public motionDatas: Observable<any> = of({message: 'loading...'});
+  public motionDatas: Observable<IMotionPWADatasOptions> = of({message: 'loading...'});
 
   constructor() { }
 
   ngOnInit() {
     this.startMotion();
-    this.startCamera();
   }
-
-  async startCamera() {
-    await cameraPWA.start();
-    this.savePic();
-  }
-
-  savePic(){
-    console.log('pic saved!')
-  }
-
-  takeSnapshot() {
-    const img = document.querySelector('img') || document.createElement('img');
-    const video = document.querySelector('video') || document.createElement('video');
-    let canvas = document.querySelector('canvas') || document.createElement('canvas');
-    let context;
-    const width = video.offsetWidth
-      , height = video.offsetHeight;
-
-    canvas = canvas || document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-
-    context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, width, height);
-
-    img.src = canvas.toDataURL('image/png');
-    document.body.appendChild('imgSnap');
-  }
-
 
   startMotion() {
     const ready = Capacitor.isPluginAvailable('Motion');
     if (!ready) {
-      this.motionDatas = of({message: 'error Capacitaor Motion not available'});
       return this.handlError();
     }
     Motion.addListener('orientation', (data) => {
@@ -85,5 +53,12 @@ export class TabThreeComponent implements OnInit {
     });
   }
 
+  async startCamera() {
+    await cameraPWA.start();
+    this.savePicture();
+  }
 
+  savePicture() {
+    console.log('picture saved!');
+  }
 }
