@@ -11,5 +11,24 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-content padding>
+    <p>Tab Three work!</p>
+    <div *ngIf="(motionDatas | async) as datas">
+        <pre>
+          {{ datas?.alpha}}
+          {{ datas?.beta}}
+          {{ datas?.gamma}}
+        </pre>
+    </div>
+  </ion-content>
 
-<ion-button (click)="takePhoto()">Take Photo</ion-button>
+  <img id="imgSnap" width="150" height="150" src="" alt="">
+
+<video>
+  
+</video>
+
+<ion-button (click)="takeSnapshot()">Take Photo</ion-button>
+
+
+
