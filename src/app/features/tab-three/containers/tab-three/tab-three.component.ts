@@ -18,11 +18,14 @@ const { Motion, Toast } = Capacitor.Plugins;
 })
 export class TabThreeComponent implements OnInit {
 
+  public cameraPlugin = cameraPWA;
   public motionDatas: Observable<IMotionPWADatasOptions> = of({message: 'loading...'});
+  public img: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.img = localStorage.getItem('ionic-img');
     this.startMotion();
   }
 
@@ -54,11 +57,15 @@ export class TabThreeComponent implements OnInit {
   }
 
   async startCamera() {
-    await cameraPWA.start();
-    this.savePicture();
+    const pict = await cameraPWA.start();
   }
 
   savePicture() {
     console.log('picture saved!');
+    if (!cameraPWA.img.src) {
+      return console.log('err');
+    }
+    localStorage.setItem('ionic-img', cameraPWA.img.src);
+    console.log('img url save', cameraPWA.img.src);
   }
 }

@@ -13,6 +13,8 @@
 
 <ion-content padding>
   <p>Tab Three work!</p>
+  <img *ngIf="img" src="{{img}}" alt="">
+  <hr />
   <div *ngIf="(motionDatas | async) as datas">
       <pre>
         {{ datas?.alpha}}
@@ -21,6 +23,6 @@
       </pre>
   </div>
   <ion-button (click)="startCamera()">TAKE PICTURE</ion-button>
+  <ion-button *ngIf="cameraPlugin?.img?.src" (click)="savePicture()">SAVE PICTURE</ion-button>
 </ion-content>
-
 
