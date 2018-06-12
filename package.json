@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ionic serve",
+    "dev": "http-server www",
     "build": "ionic build",
     "test": "ng test",
     "lint": "ng lint",
@@ -19,6 +20,7 @@
     "@angular/http": "6.0.2",
     "@angular/platform-browser": "6.0.2",
     "@angular/platform-browser-dynamic": "6.0.2",
+    "@angular/pwa": "^0.6.8",
     "@angular/router": "6.0.2",
     "@capacitor/cli": "^1.0.0-alpha.39",
     "@capacitor/core": "^1.0.0-alpha.39",
@@ -29,7 +31,8 @@
     "@ionic/schematics-angular": "latest",
     "core-js": "^2.5.3",
     "rxjs": "6.1.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@angular/service-worker": "6.0.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.6.0",
@@ -44,6 +47,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.1.0",
     "codelyzer": "~4.3.0",
+    "http-server": "^0.11.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
