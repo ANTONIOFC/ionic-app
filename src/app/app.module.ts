@@ -16,7 +16,11 @@ import { environment } from '../environments/environment';
   declarations: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })],
+  imports: [BrowserModule, IonicModule.forRoot(), 
+  AppRoutingModule, 
+  HttpClientModule, 
+  ServiceWorkerModule.register('./ngsw-worker.js', 
+  { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,

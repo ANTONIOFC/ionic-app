@@ -7,7 +7,9 @@
     "ng": "ng",
     "start": "ionic serve",
     "dev": "http-server www",
+    "dev:ssl": "http-server www -gzip",
     "build": "ionic build",
+    "deploy": "ng build --prod --base-href https://daniellaera.github.io/ionic-app/ && cd .. && sh ionic-app/deploy-gh.sh",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
